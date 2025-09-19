@@ -5,7 +5,7 @@ class Car_Store:
         self.__brand = brand # '__' pre-variable makes it private to its class
         self.model = model
 
-    def get_brand(self): # convention: start getter functions name with 'get_'
+    def get_brand(self):
         return self.__brand + "!"
 
     def car_full_name(self):
@@ -15,7 +15,6 @@ class Car_Store:
         return "Petrol or Diesel"
     
 
-# pass the class name as attribute to inherit that class
 class Electric_Car(Car_Store):
     def __init__(self, brand, model, battery_size):
         super().__init__(brand, model)
