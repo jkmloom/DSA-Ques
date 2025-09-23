@@ -7,7 +7,7 @@ def timer(func):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
-        print(f"{func.__name__} ran in {round(end_time - start_time, 4)} seconds")
+        print(f"{func.__name__} ran in {(end_time - start_time, 4)} seconds")
         return result
     return wrapper
 
