@@ -1,0 +1,14 @@
+
+{
+    "Name":"Jatin Kumar Mehta",
+    "User ID":"@jkmloom",
+    "isProgrammer":true,
+    "Hobbies": ["Mobile Photography", "Sketching", "Story Writing"],
+    "Contact": 1234567890,
+    "Friends": [{
+        "Name":"Aman Kumar",
+        "User ID": "@aaravcodeguy",
+        "Friendship Score": 100,
+        "isProgrammer": true
+    }]
+}

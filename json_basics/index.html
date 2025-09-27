@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JSON</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Anything in JSON is valid in JavaScript
+        let companies = `[
+            {
+                "name": "Codoko",
+                "number_of_employees": 1000,
+                "ceo":"Jatin Kumar Mehta",
+                "rating":4.5
+            },
+            {
+                "name": "Dripkite",
+                "number_of_employees": 120,
+                "ceo": "Ashwani Singh",
+                "rating": null
+            },
+            {
+                "name": "Tiraa",
+                "number_of_employees": 12,
+                "ceo": "Aman Kumar",
+                "rating": 3.9
+            }]`
+
+        // console.log(companies)
+        console.log(JSON.parse(companies))
+        console.log(JSON.parse(companies)[0])
+        console.log(JSON.parse(companies)[1])
+        console.log(JSON.parse(companies)[2])
+    </script>
+</body>
+</html>
