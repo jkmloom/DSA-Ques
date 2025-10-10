@@ -38,6 +38,7 @@ def update_video(videos):
         video_duration = input("Enter the new video duration: ")
         videos[video_index - 1] = {'name': video_name, 'duration':video_duration}
         save_data_helper(videos)
+        print(f"Video Index: {video_index} UPDATED!")
     else:
         print("Invalid index selected..!")
 
@@ -47,6 +48,7 @@ def delete_videos(videos):
     if 1 <= video_index <= len(videos):
             del videos[video_index - 1]
             save_data_helper(videos)
+            print(f"Video Index: {video_index} DELETED!")
     else:
             print("Invalid video selected..!")
 
