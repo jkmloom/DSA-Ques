@@ -1,63 +1,84 @@
+# Managing YouTube Videos in a List (Dedicated File) through this Python Program
+
 import json
 
-db_file = "YouTube.txt"
+youtube_data = "YouTube_DB.txt"
 
 def load_data():
     try:
-        with open(db_file, 'r') as file:
-            return json.load(file)
+        with open(youtube_data, 'r') as file:
+            test = json.load(file)
+            # print(type(test))
+            return test
     except FileNotFoundError:
         return []
     
 def save_data_helper(videos):
-    with open(db_file, 'w') as file:
-        json.dump(videos, file) # syntax: json.dump(to_write, where_to)
+    with open(youtube_data, 'w') as file:
+        json.dump(videos, file) # json.dump(what, where)
 
 def list_all_videos(videos):
-    for index, video_name in enumerate(videos, start=1):
-        print(f"{index}. {video_name}")
+    videos_list = enumerate(videos, start=1)
+    print('*'*90)
+    for index, video in videos_list:
+        print(f"{index}. {video['name']}, Duration: {video['duration']}")
+    print('*'*90)
 
 def add_video(videos):
-    video_name = input("Enter video name: ")
-    video_duration = input("Enter video duration: ")
-    videos.append({'name':video_name}, {'duration':video_duration})
+    video_name = input("Enter video's name: ")
+    video_duration = input("Enter Video's duration: ")
+    videos.append({"name": video_name, "duration": video_duration})
     save_data_helper(videos)
 
 def update_video(videos):
-    pass
+    list_all_videos(videos)
+    video_index = int(input("Enter the index value to update the video: "))
+    if 1 <= video_index <= len(videos):
+        video_name = input("Enter the new video name: ")
+        video_duration = input("Enter the new video duration: ")
+        videos[video_index - 1] = {'name': video_name, 'duration':video_duration}
+        save_data_helper(videos)
+    else:
+        print("Invalid index selected..!")
 
-def delete_video(videos):
-    pass
-
+def delete_videos(videos):
+    list_all_videos(videos)
+    video_index = int(input("Enter the index value to delete a video: "))
+    if 1 <= video_index <= len(videos):
+            del videos[video_index - 1]
+            save_data_helper(videos)
+    else:
+            print("Invalid video selected..!")
 
 def main():
     videos = load_data()
+
     while True:
-        print("\n YouTube Manager \nChoose an option:")
+        print("-----------------\n YOUTUBE MANAGER \n-----------------")
+        print("Choose an option:\n----------------")
         print("1. List all YouTube videos")
-        print("2. Add a YouTube video")
-        print("3. Update a YouTube video detail")
+        print("2. Add a Youtube video")
+        print("3. Update a YouTube details")
         print("4. Delete a YouTube video")
         print("5. Exit the app")
 
-        user_choice = int(input("Enter your choice: "))
-        print(videos)
+        user_choice = input("Enter your choice: ")
+        # print(videos)
 
+        print("\n")
         match user_choice:
-            case 1:
+            case '1':
                 list_all_videos(videos)
-            case 2:
+            case '2':
                 add_video(videos)
-            case 3:
+            case '3':
                 update_video(videos)
-            case 4:
-                delete_video(videos)
-            case 5:
-                break
+            case '4':
+                delete_videos(videos)
+            case '5':
+                exit()
             case _:
-                print("Invalid Choice..!")
+                print("Invalid choice..!")
 
 if __name__ == "__main__":
     main()
-
-    print("hello from @jkmloom")
