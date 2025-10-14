@@ -19,10 +19,10 @@ def save_data_helper(videos):
 
 def list_all_videos(videos):
     videos_list = enumerate(videos, start=1)
-    print('*'*90)
+    print('*'*72)
     for index, video in videos_list:
         print(f"{index}. {video['name']}, Duration: {video['duration']}")
-    print('*'*90)
+    print('*'*72)
 
 def add_video(videos):
     video_name = input("Enter video's name: ")
