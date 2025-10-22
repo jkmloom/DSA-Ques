@@ -20,8 +20,8 @@ def main():
     try:
         usrename, user_country = fetch_random_user_freeapi()
         print(f"Username: {usrename}\nCountry: {user_country}")
-    except Exception as e:
-        print(str(e))
+    except Exception as exc:
+        print(str(exc))
 
 # __dunder_method__
 if __name__ == "__main__":
