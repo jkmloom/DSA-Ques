@@ -26,13 +26,13 @@ int main(int argc, char const *argv[])
     string str_value = "Namaste"; // std::string
     char word[] = "Anime";
 
-    cout << age << endl;
-    cout << grade << endl;
-    cout << fat << endl;
-    cout << alpha << endl;
+    cout << age << " | " << sizeof(age) << endl;
+    cout << grade << " | " << sizeof(grade) << endl;
+    cout << fat << " | " << sizeof(fat) << endl;
+    cout << alpha << " | " << sizeof(alpha) << endl;
 
-    cout << str_value << endl;
-    cout << word << endl;
-    
+    cout << str_value << " | " << sizeof(str_value) << endl;
+    cout << word << " | " << sizeof(word) << endl;
+
     return 0;
 }
