@@ -5,27 +5,23 @@
 using namespace std;
 
 int main(){
-    int n;
-    bool is_prime;
-    
-    while (true){
-        cout << "Enter a number:\t";
-        cin >> n;
-        
-        for (int i = 2; i <= n-1; i++){
-            if(n%i == 0){
-                is_prime = 0;
-                break;
-            } else{
-                is_prime = 1;
-            }
-        }
+    int in_num;
+    bool is_prime = true;
 
-        if(is_prime == true){
-            cout << "Prime Number" << endl;
-        } else{
-            cout << "Not a Prime Number" << endl;
+    cout << "Enter a number to check if it's prime:\t";
+    cin >> in_num;
+
+    for(int i=2; i < in_num; i++){
+        if(in_num % i == 0){ // not a prime number
+            is_prime = false;
+            break;
         }
     }
+    if (is_prime == true){
+        cout << "Prime number";
+    } else{
+        cout << "Not a Prime Number";
+    }
+
     return 0;
 }
